@@ -1,0 +1,203 @@
+/* ==========================================
+   KAJUUT - PALETA Y VARIABLES GLOBALES
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@600;800&display=swap');
+
+:root {
+    /* Colores Cálidos Pastel (Base) */
+    --bg-main: #FFF8F0;           /* Crema cálido suave */
+    --bg-card: #FFFFFF;           /* Blanco puro para tarjetas */
+    --bg-header: #FFE8D6;         /* Melocotón muy suave */
+    
+    --color-primary: #FF8B8B;      /* Coral cálido */
+    --color-secondary: #FFD93D;    /* Mostaza/Amarillo dulce */
+    --color-success: #6BCB77;      /* Verde menta suave */
+    --color-info: #4D96FF;         /* Azul pastel */
+    
+    /* Textos y Bordes */
+    --text-dark: #2B2D42;          /* Gris oscuro para legibilidad */
+    --text-muted: #8D99AE;         /* Gris medio para detalles */
+    --border-soft: #F1E3D3;        /* Borde tenue cálido */
+    
+    /* Acentos para Hover, Neón y sombras KAJUUT */
+    --glow-kajuut: 0 0 15px rgba(255, 139, 139, 0.6);
+    --shadow-soft: 0 8px 20px rgba(218, 162, 127, 0.15);
+    --shadow-hover: 0 12px 25px rgba(218, 162, 127, 0.25);
+    
+    /* Tipografías */
+    --font-title: 'Fredoka', cursive, sans-serif;
+    --font-body: 'Nunito', sans-serif;
+}
+
+/* ==========================================
+   ESTILOS GENERALES Y ESTRUCTURA
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+/* Header con Branding KAJUUT */
+.header-kajuut {
+    width: 100%;
+    background-color: var(--bg-header);
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-bottom: 3px solid var(--border-soft);
+    margin-bottom: 25px;
+}
+
+.logo-kajuut {
+    font-family: var(--font-title);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-shadow: 3px 3px 0px var(--color-secondary), 5px 5px 10px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.logo-kajuut:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Contenedor Principal */
+.main-container {
+    width: 90%;
+    max-width: 900px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    border: 2px solid var(--border-soft);
+}
+
+/* Titulares de Sección */
+h2 {
+    font-family: var(--font-title);
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 3px dashed var(--bg-header);
+    padding-bottom: 10px;
+}
+
+/* ==========================================
+   FORMULARIO Y CAJAS DE ENTRADA
+   ========================================== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 800;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--text-dark);
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: #FAFAFA;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(255, 139, 139, 0.4);
+    background-color: #FFF;
+}
+
+/* Cuadrícula de las 4 Opciones (A, B, C, D) */
+.grid-opciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.opcion-box {
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.opcion-a { background-color: rgba(255, 139, 139, 0.15); border: 2px solid var(--color-primary); }
+.opcion-b { background-color: rgba(255, 217, 61, 0.25); border: 2px solid var(--color-secondary); }
+.opcion-c { background-color: rgba(107, 203, 119, 0.2); border: 2px solid var(--color-success); }
+.opcion-d { background-color: rgba(77, 150, 255, 0.15); border: 2px solid var(--color-info); }
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+.btn {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 0px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #FF7373;
+    transform: translateY(-2deg);
+    box-shadow: 0 6px 12px rgba(255, 139, 139, 0.4);
+}
+
+.btn-success {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #5BB867;
+    transform: translateY(-2deg);
+    box-shadow: 0 6px 12px rgba(107, 203, 119, 0.4);
+}
+
+.btn:active {
+    transform: translateY(2deg);
+    box-shadow: none;
+}
+
+/* Footer sutil */
+footer {
+    margin-top: auto;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}

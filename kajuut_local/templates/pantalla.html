@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAJUUT - Pantalla TV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pantalla.css') }}">
+    <!-- Socket.IO Client -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+
+    <!-- REPRODUCTORES DE AUDIO PARA EFECTOS -->
+    <audio id="audio-tictac" src="{{ url_for('static', filename='audio/efectos/tic_tac_loop.mp3') }}" loop></audio>
+    <audio id="audio-tiempo-agotado" src="{{ url_for('static', filename='audio/efectos/tiempo_agotado.mp3') }}"></audio>
+    <audio id="audio-fanfarria" src="{{ url_for('static', filename='audio/efectos/podio_fanfarria.mp3') }}"></audio>
+    <audio id="audio-saltamontes" src="{{ url_for('static', filename='audio/efectos/saltamontes.mp3') }}"></audio>
+    <audio id="audio-pregunta" src=""></audio>
+
+    <header class="header-tv">
+        <h1 class="logo-tv">🎉 KAJUUT</h1>
+        <div class="ip-box">
+            📲 Ingresa en tu móvil a: <span id="ip-servidor">http://{{ config.HOST_IP }}:{{ config.PORT }}/jugar</span>
+        </div>
+    </header>
+
+    <!-- 1. LOBBY DE ESPERA -->
+    <section id="seccion-lobby" class="contenedor-lobby">
+        <h2 style="font-family: var(--font-title); font-size: 2.5rem;">Esperando Jugadores... (<span id="cant-conectados">0</span>/{{ config.MAX_JUGADORES }})</h2>
+        <p style="color: var(--text-muted); font-size: 1.2rem; margin-top: 5px;">Abre el navegador en tu teléfono e ingresa la dirección de arriba para unirte.</p>
+        
+        <div id="grid-jugadores" class="grid-jugadores-tv">
+            <!-- Se puebla dinámicamente con los avatares -->
+        </div>
+    </section>
+
+    <!-- 2. PANTALLA DE PREGUNTA ACTIVA Y RESULTADOS -->
+    <section id="seccion-pregunta" class="contenedor-pregunta-tv" style="display: none;">
+        <h2 id="texto-pregunta-tv" class="pregunta-titulo">Texto de la pregunta...</h2>
+
+        <div class="area-media">
+            <div id="temporizador" class="temporizador-circulo">20</div>
+            <img id="imagen-pregunta" class="imagen-pregunta-tv" src="" alt="Imagen de pregunta" style="display: none;">
+            <div class="contador-respuestas">
+                <span id="num-respuestas" style="font-size: 2rem;">0</span> 
+                <span style="font-size: 0.8rem;">Respuestas</span>
+            </div>
+        </div>
+
+        <div class="grid-opciones-tv">
+            <div id="opcion-tv-a" class="opcion-tv a"><strong>A:</strong> <span id="txt-opcion-a"></span></div>
+            <div id="opcion-tv-b" class="opcion-tv b"><strong>B:</strong> <span id="txt-opcion-b"></span></div>
+            <div id="opcion-tv-c" class="opcion-tv c"><strong>C:</strong> <span id="txt-opcion-c"></span></div>
+            <div id="opcion-tv-d" class="opcion-tv d"><strong>D:</strong> <span id="txt-opcion-d"></span></div>
+        </div>
+    </section>
+
+    <!-- 3. PANTALLA PODIO FINAL -->
+    <section id="seccion-podio" class="contenedor-podio" style="display: none;">
+        <h2 style="font-family: var(--font-title); font-size: 3rem; text-align: center;">🏆 ¡PODIO FINAL! 🏆</h2>
+        <p id="mensaje-especial" style="font-family: var(--font-title); color: var(--color-a); font-size: 1.8rem; margin-top: 10px; display: none;"></p>
+
+        <div id="podio-items" class="podio-items">
+            <!-- Puestos 2, 1 y 3 cargados dinámicamente -->
+        </div>
+    </section>
+
+    <!-- Script de lógica de la pantalla TV -->
+    <script src="{{ url_for('static', filename='js/pantalla.js') }}"></script>
+</body>
+</html>

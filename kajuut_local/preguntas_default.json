@@ -1,0 +1,41 @@
+[
+  {
+    "texto": "¿Cuál es el planeta más grande de nuestro sistema solar?",
+    "opciones": {
+      "A": "Marte",
+      "B": "Júpiter",
+      "C": "Saturno",
+      "D": "Neptuno"
+    },
+    "respuesta_correcta": "B",
+    "imagen": null,
+    "audio": null,
+    "tiempo_limite": 20
+  },
+  {
+    "texto": "¿En qué año llegó el hombre a la Luna?",
+    "opciones": {
+      "A": "1965",
+      "B": "1969",
+      "C": "1972",
+      "D": "1980"
+    },
+    "respuesta_correcta": "B",
+    "imagen": null,
+    "audio": null,
+    "tiempo_limite": 15
+  },
+  {
+    "texto": "¿Cuál es el lenguaje de programación principal de este proyecto?",
+    "opciones": {
+      "A": "Java",
+      "B": "PHP",
+      "C": "Python",
+      "D": "C++"
+    },
+    "respuesta_correcta": "C",
+    "imagen": null,
+    "audio": null,
+    "tiempo_limite": 15
+  }
+]

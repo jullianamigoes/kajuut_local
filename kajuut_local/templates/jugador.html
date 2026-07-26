@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KAJUUT - Jugador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jugador.css') }}">
+    <!-- Socket.IO Client -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+
+    <header class="header-kajuut">
+        <h1 class="logo-kajuut">🎉 KAJUUT</h1>
+    </header>
+
+    <!-- 1. PANTALLA DE REGISTRO -->
+    <section id="seccion-registro" class="card-jugador">
+        <h2>Unirse al Juego</h2>
+        <p style="color: var(--text-muted); margin-bottom: 15px;">Ingresa tu alias y elige tu avatar</p>
+
+        <form id="form-registro">
+            <div class="form-group">
+                <label for="alias-input">Alias / Nombre:</label>
+                <input type="text" id="alias-input" placeholder="Tu nombre aquí..." maxlength="12" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label>Elige tu Emoji único:</label>
+                <div id="grid-emojis" class="grid-emojis">
+                    <!-- Se cargará dinámicamente con los emojis disponibles -->
+                </div>
+            </div>
+
+            <div id="mensaje-error" style="color: #FF8B8B; font-weight: 800; margin-bottom: 10px;"></div>
+
+            <button type="submit" id="btn-unirse" class="btn-submit" disabled>¡Entrar a la Sala!</button>
+        </form>
+    </section>
+
+    <!-- 2. PANTALLA DE ESPERA (Lobby y entre preguntas) -->
+    <section id="seccion-espera" class="card-jugador pantalla-espera" style="display: none;">
+        <div id="avatar-espera" class="avatar-gigante">🐱</div>
+        <h2 id="alias-espera">Jugador</h2>
+        <p id="texto-estado-espera" style="font-size: 1.2rem; font-weight: 700; color: var(--text-muted);">
+            ¡Estás dentro! Esperando a que el admin inicie el juego...
+        </p>
+        <div style="background: var(--bg-header); padding: 10px 20px; border-radius: 12px; font-weight: 800;">
+            Puntaje Actual: <span id="puntaje-jugador" style="color: var(--btn-a);">0</span> pts
+        </div>
+    </section>
+
+    <!-- 3. BOTONERA TÁCTIL DE RESPUESTAS -->
+    <section id="seccion-botones" class="grid-botones-móvil" style="display: none;">
+        <button class="btn-opcion btn-a" data-opcion="A">A</button>
+        <button class="btn-opcion btn-b" data-opcion="B">B</button>
+        <button class="btn-opcion btn-c" data-opcion="C">C</button>
+        <button class="btn-opcion btn-d" data-opcion="D">D</button>
+    </section>
+
+    <!-- Script de lógica de la vista Jugador -->
+    <script src="{{ url_for('static', filename='js/jugador.js') }}"></script>
+</body>
+</html>
