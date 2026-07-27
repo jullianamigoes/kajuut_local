@@ -82,7 +82,8 @@ socket.on("nueva_pregunta_tv", (data) => {
 });
 
 socket.on("jugador_respondio", (data) => {
-    numRespuestasElem.textContent = data.respuestas_recibidas;
+    //numRespuestasElem.textContent = data.respuestas_recibidas; 
+    numRespuestasElem.textContent = data.respondieron;
 }); 
 
 socket.on("fin_pregunta", (data) => {
