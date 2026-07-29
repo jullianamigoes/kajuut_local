@@ -46,14 +46,14 @@ Cuenta con 3 vistas:
   1. Ingresar a la carpeta raíz ***kajuut_local*** desde la consola de CMD o PowerShell y ejecutamos el siguiente comando:
 
 ```text
-   pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 
   2. Luego en la misma ubicación ejecutamos el comando:
 
 ```text
-  python app.py
+python app.py
 ```
 
 
